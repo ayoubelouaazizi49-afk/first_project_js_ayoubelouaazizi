@@ -18,3 +18,19 @@ while (true) {
         break;
     }
 }
+// *signup
+function signUp() {
+    // !========Name=============================
+    let nom = prompt("Enter Full Name").trim();
+    if (nom.length < 5) {
+        alert("Short name")
+        return;
+    }
+     nom = nom.split(' ')
+         .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+         .join(' ');
+
+
+
+
+         
