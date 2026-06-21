@@ -103,4 +103,23 @@ function signUp() {
 
    }
 }
+// !functionlogin
+function login () {
+  
+let email = prompt("Enter your Email to log In").trim().toLowerCase();
+let foundUser = user.find(us => us.email === email);
+if (!foundUser){
+    alert("Email not found in our database!");
+    return;
+}
+let password = prompt("Enter your password:");
+if (foundUser.password !==password){
+    alert("Incorrect password!");
+    return;
+}
+currentUser = foundUser;
+alert(`welcome back, ${currentUser.name}!`);
+console.log("Logged in successfully");
+
+}
 
