@@ -123,3 +123,32 @@ console.log("Logged in successfully");
 
 }
 
+function changePassword () {
+  let email = prompt("Enter your email to change password:").trim().toLowerCase();
+  let foundUser = user.find(us => us.email === email);
+   
+if (! foundUser){
+    alert("email npot found! you cannot change the  password.");
+    return;
+}
+ let newPassword = prompt("Enter your New password:").trim();
+  if (newPassword.includes(" ")){
+    alert("Password cannot contain spaces.");
+    return;
+  }
+  if (newPassword.length < 7){
+    alert("Password must be at least 7 characters long.");
+    return;
+  }
+
+  let specialChars = ["@", "#", "-", "+", "*", "/"];
+let hasSpecial = specialChars.some(char => newPassword.includes(char));
+if (!hasSpecial){
+    alert("PAssword must contain at  least one special character:@,#,=,*");
+    return;
+}
+foundUser.password = newPassword;
+alert("PAssword changed successfully! you can now log in with your new password.");
+console.log("Password updated");
+
+}
